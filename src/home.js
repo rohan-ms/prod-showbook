@@ -1,0 +1,93 @@
+import React from "react";
+import axios from "axios";
+import { Link, useParams } from "react-router-dom";
+import Infop from "./infop";
+
+// function AccessUname() {
+//   const { user } = useParams();
+// }
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      uname: this.props.match.params.user, //to be changed
+      sdata: [],
+      shs: [],
+      valid: false,
+      strcls: "usual",
+      shid: null,
+      msg: "Enter your show name above",
+    };
+    this.srcstr = React.createRef();
+  }
+
+  showSearch = async (e) => {
+    this.setState({ valid: true });
+
+    let searchstr = this.srcstr.current.value;
+    if (searchstr) {
+      this.setState({ strcls: "usual" });
+      let result = await fetch(
+        "https://api.tvmaze.com/search/shows?q=" + searchstr
+      );
+      let data = await result.json();
+      this.setState({ sdata: data });
+      this.state.sdata.length !== 0
+        ? this.setState({ msg: "Enter your show name above" })
+        : this.setState({ msg: "No result found" });
+    } else {
+      this.setState({ strcls: "warns" });
+      alert("Please fill the search field");
+    }
+  };
+
+  render() {
+    console.log("Entered Home");
+    return (
+      <React.Fragment>
+        <div className="hheader">
+          <h1 className="homeheader">Welcome {this.state.uname}</h1>
+          <form className="homef">
+            {console.log(this.state.strcls)}
+            <input
+              type="text"
+              ref={this.srcstr}
+              className={this.state.strcls}
+              placeholder="Search..."
+            />
+            <button type="button" onClick={this.showSearch}>
+              <i className="fa fa-search"></i>{" "}
+            </button>
+          </form>
+        </div>
+        <div className="sbdy">
+          {this.state.sdata.length !== 0 ? (
+            this.state.sdata.map((res) => {
+              let nurl =
+                "/ShowBook/infop/" + this.state.uname + "/" + res.show.id;
+              return res.show.image != null && res.show.name != null ? (
+                <Link to={nurl}>
+                  <div className="gallery">
+                    <img
+                      src={res.show.image.original}
+                      alt="Poster"
+                      width="300px"
+                      height="400px"
+                    />
+                    <p className="desc">{res.show.name}</p>
+                  </div>{" "}
+                </Link>
+              ) : (
+                console.log("passed")
+              );
+            })
+          ) : (
+            <h2 className="hmsg">{this.state.msg}</h2>
+          )}
+        </div>
+      </React.Fragment>
+    );
+  }
+}
+
+export default Home;
