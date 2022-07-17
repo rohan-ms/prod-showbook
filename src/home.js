@@ -1,7 +1,5 @@
 import React from "react";
-import axios from "axios";
-import { Link, useParams } from "react-router-dom";
-import Infop from "./infop";
+import { Link } from "react-router-dom";
 
 // function AccessUname() {
 //   const { user } = useParams();
@@ -51,12 +49,13 @@ class Home extends React.Component {
             {console.log(this.state.strcls)}
             <input
               type="text"
+              autoFocus
               ref={this.srcstr}
               className={this.state.strcls}
               placeholder="Search..."
             />
             <button type="button" onClick={this.showSearch}>
-              <i className="fa fa-search"></i>{" "}
+              <i className="inverted search icon"></i>{" "}
             </button>
           </form>
         </div>
@@ -82,7 +81,9 @@ class Home extends React.Component {
               );
             })
           ) : (
-            <h2 className="hmsg">{this.state.msg}</h2>
+            <div className="hmsg">
+              <h2>{this.state.msg}</h2>
+            </div>
           )}
         </div>
       </React.Fragment>

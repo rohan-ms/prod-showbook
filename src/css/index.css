@@ -1,3 +1,30 @@
+.LoginBackground{
+  position: sticky;
+  top:0px;
+  left:0px;
+  z-index: 1;
+  background-color: rgba(2, 156, 253, 0.6);
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  height:40vh;
+  width:100%;
+}
+.loginlogoimage{
+  padding: 5px;
+  height: 250px;
+  width: 50vw;
+  border-radius: 50px;
+}
+.LoginForm{
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 body {
   
   margin: 0;
@@ -15,12 +42,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.loginheader{
-  
-  color:rgb(255, 10, 10);
-  padding: 3px 20px;
-}
 .subd{
   margin-top: -15px;
   font-weight: bold;
@@ -30,6 +51,9 @@ code {
   font-family: cursive;
 }
 .middlest{
+  position: relative;
+  top: 0px;
+  left: 0px;
   background-image: url("../../src/serieslg.jpg");
   width: 100%;
   height: 800pt;
@@ -40,40 +64,40 @@ code {
   background-size: cover;
 
 }
-.lform{
-  position: absolute;
-  top: 50%;
-  left:36%
-}
+
 
 .bigs{
-  
+  text-align: center;
   border-radius: 100px;
-  padding: 3% 7%;
-  font-size: 30px;
+  font-size: 20px;
+  padding: 3px;
   background-color: lightgray;
   border-style: hidden;
   color: black;
-  
+  margin-bottom: 1.5rem;
 }
 
 .sbtn{
-  
-
-  width: 60%;
-  font-size: 28px;
-  padding: 3% 7%;
+  margin-left: 30%;
+  width: 30%;
+  font-size: 1.2em;
   border-radius: 50px;
-  background-color:lightgray;
+  background-color:whitesmoke;
   color: black;
-  border-color: green;
-  border-style: double;
+  border:3px solid lightgray;
 }
-
-.homef{
-  position: absolute;
-  top: 25%;
-  right: 5%;
+.wheader{
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  height: 25vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(2, 156, 253, 0.6);
+}
+.hmsg{
+  margin-top: 10vh;
 }
 .usual{
 width: 200px;
@@ -96,18 +120,25 @@ form.homef button:hover{
 }
 
 .hheader{
-  position: absolute;
-  top: 5%;
-  width: 100%;
+  position: sticky;
+  top:0px;
+  left:0px;
+  width: 100vw;
+  height: 12vh;
   font-family: cursive;
   background-color:cornsilk;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .sbdy{
+  margin-top: 2px solid white;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100vw;
   color: white;
-  position:absolute;
-  top:30%;
-  left:5%
 }
 
 .gallery{
@@ -143,28 +174,23 @@ form.homef button:hover{
 }
 
 .sheader{
-  position: absolute;
-  
-  left:32%;
-  top: 0px;
-  clip: rect(60px,480px,230px,20px);
+  width: 40vw;
+  height:20vh;
+  border-radius:30px;
+
 }
 .bckbtn{
-  position: absolute;
-  left:2%;
-  top:15%;
-  width: 50px;
-  height: 50px;
-  font-size: 50px;
-  background-color:black;
-  border-style: none;
-  color: white;
-
+  background:none;
+  border: none;
+}
+.backbuttom{
+  background: none;
+  flex-basis: 40%;
 }
 .bckbtn:hover{
   cursor: pointer;
 }
-.topr{
+/* .topr{
   position: absolute;
   top: 6%;
   width: 100%;
@@ -178,9 +204,18 @@ form.homef button:hover{
   width: 100%;
   background-color: white;
   height: 5px;
-}
-
+} */
 .sbody{
+  width: 100vw;
+  display: flex;
+  border: 2px solid white;
+  align-items: center;
+  justify-content: space-around;
+}
+.posterImage{
+  flex-basis: 40vw;
+}
+/* .sbody{
   color: white;
   position: absolute;
   top:40%;
@@ -188,30 +223,22 @@ form.homef button:hover{
   padding-right: 50px;
   border-right: solid;
   border-color: white;
-}
+} */
 .sbodydesc{
   color: white;
-  position: absolute;
-  top:50%;
-  left:30%;
-
 }
-.plot{
-  
-  position: absolute;
-  top:700px;
-  left:5%;
-  color: white;
-  padding: 5px;
-  margin-right: 2%;
+.imgHeader{
+  flex-basis: 50%;
 }
+/* .lastHeader{
+  flex-basis: 20%;
+} */
 
 .castinfo{
   color: white;
-  position: absolute;
-  top:850px;
-  left:5%;
-  
+  margin-top: 5%;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 .castpho{
   width: 120px;
@@ -228,29 +255,35 @@ form.homef button:hover{
   top:50%;
 }
 
-.hmsg{
-  
-  margin-left: 500px;
-  
-}
 
 .cerror{
   color: white;
 }
 
-
+.plot{
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 5%;
+  color: white;
+}
 
 @media only screen and (max-width: 600px) {
+  .loginlogoimage{
+    height: 150px;
+  }
   body {
     font-size: 16px;
 
   }
   .bigs{
+    margin-left: 1.2em;
+    width: 80%;
     font-size: 16px;
     text-align: center;
 
   }
   .sbtn{
+    width: 50%;
     font-size: 16px;
     text-align: center;
   }
@@ -287,20 +320,7 @@ form.homef button:hover{
         border-style: solid;
         border-color: red;
     }
-    .hmsg{
-  
-      margin-left: 40px;
-      font-size: medium ;      
-    }
 
-    .sbody{
-      color: white;
-      position: absolute;
-      top:40%;
-      left:5%;
-      border-right: solid;
-      border-color: white;
-    }
 
     div.gallery img{
       color: white;
@@ -317,14 +337,13 @@ form.homef button:hover{
       font-size: 12px;
       text-align: center;
     }
+
     .sheader{
-      position: absolute;
-      left:20%;
-      width:280px;
-      height:220px;
+      width:40vh;
+      height: 20vh;
      
     }
-    .bckbtn{
+    /* .bckbtn{
       position: absolute;
       left:1%;
       top:10%;
@@ -335,44 +354,14 @@ form.homef button:hover{
       border-style: none;
       color: white;
     
-    }
-    .sbody{
-      color: white;
-      position: absolute;
-      top:40%;
-      left:5%;
-      padding-right: 20px;
-      border-right: solid;
-      border-color: white;
-    }
-    div.sbody img{
+    */
+    /* div.sbody img{
       width:200px;
       height:300px;
-    }
-    .sbodydesc{
-      font-size: small;
-      color: white;
-      position: absolute;
-      top:50%;
-      left:55%;
-    
-    }
+    } */
     .plot{
       color: white;
-      top:550px;
-      left:5%;
-      padding: 5px;
-      margin-right: 2%;
-    }
-    
-    .castinfo{
-      color: white;
-      position: absolute;
-      top:750px;
-      left:5%;
-      
-      
-    }
+      }
     .castpho{
       width: 100px;
       height:160px;

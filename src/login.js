@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Logo from "./DummyLogo.jpg";
 
 class Login extends React.Component {
   constructor() {
@@ -21,40 +21,37 @@ class Login extends React.Component {
     if (user !== "" && pass === "Admin") {
       this.props.history.replace("/ShowBook/home/" + user);
     } else {
-      //   this.props.history.replace("/ShowBook/");
-
-      this.props.history.replace("/ShowBook/home/" + user);
+      this.props.history.replace("/ShowBook/");
     }
   };
   render() {
     return (
       <React.Fragment>
-        <center>
+        <div className="LoginBackground">
           <div className="loginheader">
-            <h1 className="mheader">ShowBook</h1>
-            <p className="subd">Find TV Show Info</p>
+            <img className="loginlogoimage" src={Logo} alt="Logo" />
           </div>
-          <div className="middlest"></div>
-          <form className="lform" onSubmit={this.handelClick}>
-            <input
-              type="text"
-              ref={this.nameRef}
-              placeholder="Username"
-              className="bigs"
-            />
-            <br />
-            <br />
-            <input
-              type="password"
-              ref={this.passRef}
-              placeholder="Password"
-              className="bigs"
-            />
-            <br />
-            <br />
-            <input type="submit" value="login" className="sbtn" />
-          </form>
-        </center>
+          <div className="LoginForm">
+            <form className="lform" onSubmit={this.handelClick}>
+              <input
+                type="text"
+                ref={this.nameRef}
+                placeholder="Username"
+                className="bigs"
+              />
+              <br />
+              <input
+                type="password"
+                ref={this.passRef}
+                placeholder="Password"
+                className="bigs"
+              />
+              <br />
+              <input type="submit" value="Login" className="sbtn" />
+            </form>
+          </div>
+        </div>
+        <div className="middlest"></div>
       </React.Fragment>
     );
   }

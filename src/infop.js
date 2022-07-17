@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "./logofinal.jpg";
+import Logo from "./DummyLogo.jpg";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -36,37 +36,38 @@ class Infop extends React.Component {
     return (
       <React.Fragment>
         <div className="sbody">
-          {console.log(this.state.sdata)}{" "}
-          <img
-            src={this.state.sdata.image.original}
-            alt="ShowPoster"
-            width="300px"
-            height="400px"
-          />
+          <div className="posterImage">
+            {/* {console.log(this.state.sdata)}{" "} */}
+            <img
+              src={this.state.sdata.image.original}
+              alt="ShowPoster"
+              width="300em"
+              height="400px"
+            />
+          </div>
+          <div className="sbodydesc">
+            <h2>
+              {this.state.sdata.name}({this.state.sdata.premiered.slice(0, 4)})
+            </h2>
+            <h3>
+              Rating :{" "}
+              {this.state.sdata.rating.average
+                ? this.state.sdata.rating.average
+                : "Not Available"}
+            </h3>
+            <h3>Language : {this.state.sdata.language} </h3>
+            <h3>
+              Genres :{" "}
+              {this.state.sdata.genres.map((result) => {
+                return result + " ";
+              })}
+            </h3>
+            <h3>
+              Type :{" "}
+              {this.state.sdata.type ? this.state.sdata.type : "Not Available"}
+            </h3>
+          </div>
         </div>
-        ,
-        <div className="sbodydesc">
-          <h2>
-            {this.state.sdata.name}({this.state.sdata.premiered.slice(0, 4)})
-          </h2>
-          <h3>
-            Rating :{" "}
-            {this.state.sdata.rating.average
-              ? this.state.sdata.rating.average
-              : "Not Available"}
-          </h3>
-          <h3>Language : {this.state.sdata.language} </h3>
-          <h3>
-            Genres :{" "}
-            {this.state.sdata.genres.map((result) => {
-              return result + " ";
-            })}
-          </h3>
-          <h3>
-            Type :{" "}
-            {this.state.sdata.type ? this.state.sdata.type : "Not Available"}
-          </h3>
-        </div>{" "}
         <div className="plot">
           <p align="justify">
             <b>Plot</b> : {this.cleanSumm(this.state.sdata.summary)}
@@ -103,27 +104,21 @@ class Infop extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <hr className="topr" />
         <div className="wheader">
           <form>
             {" "}
             <Link to={this.state.hurl}>
-              <button type="button" className="bckbtn">
-                <i
-                  className="fa fa-arrow-circle-left"
-                  style={{ color: "white" }}
-                ></i>
-              </button>
+              <div className="backbutton">
+                <button type="button" className="bckbtn">
+                  <i className="inverted huge arrow alternate circle left outline icon"></i>
+                </button>
+              </div>
             </Link>
           </form>
-          <img
-            src={Logo}
-            alt="logofinal"
-            className="sheader"
-            width="500px"
-            height="300px"
-          />
-          <hr className="btmr" />
+          <div className="imgHeader">
+            <img src={Logo} alt="logofinal" className="sheader" />
+          </div>
+          <div className="lastHeader"></div>
         </div>
         {this.state.sdata ? this.fsuccess() : console.log("fail")}
       </React.Fragment>
