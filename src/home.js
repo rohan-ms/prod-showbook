@@ -40,13 +40,11 @@ class Home extends React.Component {
   };
 
   render() {
-    console.log("Entered Home");
     return (
       <React.Fragment>
         <div className="hheader">
           <h1 className="homeheader">Welcome {this.state.uname}</h1>
           <form className="homef">
-            {console.log(this.state.strcls)}
             <input
               type="text"
               autoFocus
@@ -76,9 +74,7 @@ class Home extends React.Component {
                     <p className="desc">{res.show.name}</p>
                   </div>{" "}
                 </Link>
-              ) : (
-                console.log("passed")
-              );
+              ) : null;
             })
           ) : (
             <div className="hmsg">

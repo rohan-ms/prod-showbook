@@ -18,7 +18,6 @@ class Infop extends React.Component {
       .get("https://api.tvmaze.com/shows/" + this.state.id + "?embed=cast")
       .then((result) => this.setState({ sdata: result.data }))
       .catch((error) => console.log(error));
-    console.log("pass");
   }
 
   cleanSumm = (summ) => {
@@ -37,7 +36,6 @@ class Infop extends React.Component {
       <React.Fragment>
         <div className="sbody">
           <div className="posterImage">
-            {/* {console.log(this.state.sdata)}{" "} */}
             <img
               src={this.state.sdata.image.original}
               alt="ShowPoster"
@@ -92,10 +90,7 @@ class Infop extends React.Component {
                 ))
               : null;
           })}
-          {this.ccount === 0
-            ? (console.log("nt availble"),
-              (<p>cast information unavailable</p>))
-            : console.log(this.ccount)}
+          {this.ccount === 0 ? <p>cast information unavailable</p> : null}
         </div>
       </React.Fragment>
     );
@@ -120,7 +115,7 @@ class Infop extends React.Component {
           </div>
           <div className="lastHeader"></div>
         </div>
-        {this.state.sdata ? this.fsuccess() : console.log("fail")}
+        {this.state.sdata ? this.fsuccess() : null}
       </React.Fragment>
     );
   }

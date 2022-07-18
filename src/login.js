@@ -17,7 +17,6 @@ class Login extends React.Component {
   handelClick = (e) => {
     let user = this.nameRef.current.value;
     let pass = this.passRef.current.value;
-    console.log(user, pass);
     if (user !== "" && pass === "Admin") {
       this.props.history.replace("/ShowBook/home/" + user);
     } else {
