@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 ReactDOM.render(
   <Router>
-    <Route exact path="/ShowBook/" component={Login} />
+    <Route exact path="/" component={Login} />
     <Route path="/ShowBook/home/:user" component={Home} />
     <Route path="/ShowBook/infop/:uname/:sid" component={Infop} />
   </Router>,
