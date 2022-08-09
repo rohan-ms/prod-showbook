@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 // function AccessUname() {
 //   const { user } = useParams();
 // }
+
+function add(a, b) {
+  return a + b;
+}
 class Home extends React.Component {
   constructor(props) {
     super(props);
